@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R Markdown Reports</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { color: #2c3e50; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin: 10px 0; }
+        a { text-decoration: none; color: #3498db; font-size: 18px; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>R Markdown Reports</h1>
+    <p>Bom-vindos e bem-vindas! Clique na seção que deseja acessar:</p>
+    <ul>
+        <li><a href="aula1-caderno.nb.html">Aula 1: Introdução</a></li>
+        <li><a href="aula2-caderno.nb.html">Aula 2: Análise Preliminar de Dados (pt. 1)</a></li>
+        <li><a href="aula3-caderno.nb.html">Aula 3: Análise Preliminar de Dados (pt. 2)</a></li>
+        <li><a href="aula4-caderno.nb.html">Aula 4: Fundamentos da Teoria de Probabilidades</a></li>
+		<li><a href="aula5-caderno.nb.html">Aula 5: Distribuições de Probabilidades (pt. 1)</a></li>
+		<li><a href="aula6-caderno.nb.html">Aula 6: Distribuições de Probabilidades (pt. 2)</a></li>
+		<li><a href="aula7-caderno.nb.html">Aula 7: Testes de Hipótese (pt. 1)</a></li>
+		<li><a href="aula8-caderno.nb.html">Aula 8: Testes de Hipótese (pt. 2)</a></li>
+		<li><a href="aula9-caderno.nb.html">Aula 9: Incerteza</a></li>
+		<li><a href="aula10-caderno.nb.html">Aula 10: Correlação e Regressão</a></li>
+    </ul>
+</body>
+</html>
