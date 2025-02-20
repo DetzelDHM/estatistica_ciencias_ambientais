@@ -1,4 +1,6 @@
+remote_theme: pages-themes/leap-day@v0.2.0
+plugins:
+- jekyll-remote-theme # add this line to the plugins list if you already have one
 title: "Estatística Aplicada a Ciências Ambientais"
 description: "Códigos elaborados para a disciplina Estatística Aplicada a Ciências Ambientais, ministrada no Programa de Pós-Graduação em Engenharia de Recursos Hídricos e Ambiental da Universidade Federal do Paraná. Autor: Daniel Detzel"
 url: "https://detzeldhm.github.io/estatistica_ciencias_ambientais/"
-theme: jekyll-theme-cayman  # Example theme, choose the one you want
