@@ -159,42 +159,63 @@ ggplot(Qmedia, aes(vazoes)) +
 
 # 5. Boxplot
 # Simples
-# tiff('boxplot.tif', height=720, width = 1780, res=300)
-ggplot(Qmedia, aes(y=vazoes)) +
+# tiff('boxplot.tif', height = 800, width = 600, res=300)
+ggplot(Qmedia, aes(x = "", y=vazoes)) +
   geom_boxplot(fill="blue3", color="black", alpha=0.3) +
   expand_limits(y=c(200,1601)) +
   scale_y_continuous(breaks = seq(0, 1600, by = 200)) +
-  coord_flip() +
-  labs(y="Vazões (m³/s)") +
-  theme_gray() +
-  theme(axis.text.y=element_blank())
+  labs(x="Foz do Areia", y="Vazões (m³/s)") +
+  theme_gray()
 # dev.off()
 
 # Com jitters
-# tiff('boxplotjitter.tif', height=720, width = 1780, res=300)
-ggplot(Qmedia, aes(x=1,y=vazoes)) +
+# tiff('boxplotjitter.tif', height = 800, width = 600, res=300)
+ggplot(Qmedia, aes(x="",y=vazoes)) +
   geom_boxplot(fill="blue3", color="black", alpha=0.3) +
-  geom_jitter(color="red3", size=1.5, alpha=0.3) +
+  geom_jitter(color="blue3", size=1.5, alpha=0.3) +
   expand_limits(y=c(200,1601)) +
   scale_y_continuous(breaks = seq(0, 1600, by = 200)) +
-  coord_flip() +
-  labs(y="Vazões (m³/s)") +
-  theme_gray() +
-  theme(axis.text.y=element_blank(),
-        axis.title.y=element_blank())
+  labs(x="Foz do Areia",y="Vazões (m³/s)") +
+  theme_gray()
 # dev.off()
 
 # Violin plot
-# tiff('boxplotviolin.tif', height=720, width = 1780, res=300)
-ggplot(Qmedia, aes(x=1,y=vazoes)) +
-  geom_violin(trim=FALSE,width=1.5,fill="blue3",alpha=0.3) +
-  geom_jitter(color="red3", size=1.5, alpha=0.3) +
+# tiff('boxplotviolin.tif', height = 800, width = 600, res=300)
+ggplot(Qmedia, aes(x="",y=vazoes)) +
+  geom_violin(trim=FALSE,width=1.0,fill="blue3",alpha=0.3) +
   geom_boxplot(color="gray", alpha=0.5) +
   expand_limits(y=c(200,1601)) +
   scale_y_continuous(breaks = seq(0, 1600, by = 200)) +
-  coord_flip() +
-  labs(y="Vazões (m³/s)") +
+  labs(x="Foz do Areia",y="Vazões (m³/s)") +
+  theme_gray()
+# dev.off()
+
+# Boxplots + violin plots com mais de uma série
+# Aqui é preciso criar uma coluna adicional nos data frames para indicar a qual
+# usina cada série pertence. Os dados utilizados são das vazões máximas em Foz
+# do Areia e Salto Caxias
+QmaxAnualFozDoAreia$usina <- "Foz do Areia"
+QmaxAnualSaltoCaxias$usina <- "Salto Caxias"
+
+# União dos data frames, de modo que eles fiquem "empilhados"
+Qmax <- rbind(QmaxAnualFozDoAreia,QmaxAnualSaltoCaxias)
+
+# Obtenção do boxplot
+# tiff('boxplot2series.tif', height = 800, width = 1000, res=300)
+ggplot(Qmax, aes(x = usina, y=vazoes, fill = usina)) +
+  geom_boxplot(alpha = 0.6) +
+  scale_fill_brewer(palette = "Set1") +
+  labs(x="", y="Vazões (m³/s)") +
   theme_gray() +
-  theme(axis.text.y=element_blank(),
-        axis.title.y=element_blank())
+  theme(legend.position = "none")
+# dev.off()
+
+# Obtenção do violin plot
+# tiff('violinplot2series.tif', height = 800, width = 1000, res=300)
+ggplot(Qmax, aes(x = usina, y=vazoes, fill = usina)) +
+  geom_violin(trim=FALSE,width=1.0,alpha = 0.6) +
+  scale_fill_brewer(palette = "Set1") +
+  labs(x="", y="Vazões (m³/s)") +
+  theme_gray() +
+  theme(legend.position = "none")
 # dev.off()
